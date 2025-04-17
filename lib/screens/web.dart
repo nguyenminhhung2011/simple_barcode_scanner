@@ -51,18 +51,7 @@ class BarcodeScanner extends StatelessWidget {
       ..src = PackageConstant.barcodeFileWebPath
       ..style.border = 'none'
       ..style.width = '100%'
-      ..style.height = '100%'
-      ..onLoad.listen((event) async {
-        /// Barcode listener on success barcode scanned
-        html.window.onMessage.listen((event) {
-          /// If barcode is null then assign scanned barcode
-          /// and close the screen otherwise keep scanning
-          if (barcodeNumber == null) {
-            barcodeNumber = event.data.toString();
-            onScanned(barcodeNumber!);
-          }
-        });
-      });
+      ..style.height = '100%';
     // ignore: undefined_prefixed_name
     ui.platformViewRegistry
         .registerViewFactory(createdViewId, (int viewId) => iframe);
